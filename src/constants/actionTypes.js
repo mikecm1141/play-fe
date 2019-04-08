@@ -1,0 +1,3 @@
+export const ARTISTS_FETCH = 'ARTISTS_FETCH';
+export const ARTISTS_FETCH_ERROR = 'ARTISTS_FETCH_ERROR';
+export const ARTISTS_ADD = 'ARTISTS_ADD';
