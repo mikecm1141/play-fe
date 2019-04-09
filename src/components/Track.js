@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
 
+import { doAddFavorite } from '../actions/favorites';
+
 import '../styles/track.css';
+
+const mapDispatchToProps = dispatch => ({
+  onAddFavorite: (trackData) => dispatch(doAddFavorite(trackData))
+});
 
 class Track extends Component {
   constructor(props) {
@@ -28,6 +33,7 @@ class Track extends Component {
       });
     } else {
       // Make API request to set as favorite
+      this.props.onAddFavorite(this.props.track);
       // Set favorite to true
       // Set icon to filled in
       this.setState({ 
@@ -56,6 +62,6 @@ class Track extends Component {
 }
 
 export default connect(
-  mapStateToProps,
+  undefined,
   mapDispatchToProps
 )(Track);

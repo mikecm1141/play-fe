@@ -5,3 +5,6 @@ export const ARTISTS_ADD = 'ARTISTS_ADD';
 export const TRACKS_FETCH = 'TRACKS_FETCH';
 export const TRACKS_FETCH_ERROR = 'TRACKS_FETCH_ERROR';
 export const TRACKS_ADD = 'TRACKS_ADD';
+
+export const FAVORITE_POST = 'FAVORITE_POST';
+export const FAVORITE_POST_ERROR = 'FAVORITE_POST_ERROR';
