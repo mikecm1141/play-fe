@@ -21,7 +21,7 @@ class Favorite extends Component {
   }
 
   render() {
-    const { id, name, artist_name, genre, song_rating } = this.props;
+    const { name, artist_name, genre, song_rating } = this.props;
     return(
       <div className="favorite-container">
         <div>

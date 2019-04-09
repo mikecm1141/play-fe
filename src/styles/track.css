@@ -25,6 +25,10 @@
   color: #9ab6c4;
 }
 
+.listed-song button:hover {
+  color: #F9B5AC;
+}
+
 .listed-song button:focus {
   outline: none;
 }

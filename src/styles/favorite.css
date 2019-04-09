@@ -38,6 +38,10 @@
   color: inherit;
 }
 
+.favorite-actions button:hover {
+  color: #F9B5AC;
+}
+
 .favorite-actions button:focus {
   outline: none;
 }
