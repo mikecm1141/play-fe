@@ -3,9 +3,10 @@ import { call, put } from 'redux-saga/effects';
 import {
   doAddFavoriteError,
   doAddFavorites,
-  doFetchFavoritesError
+  doFetchFavoritesError,
+  doRemoveFavoriteLocal
 } from '../actions/favorites';
-import { postFavorite, fetchFavorites } from '../api/favorites';
+import { postFavorite, fetchFavorites, deleteFavorite } from '../api/favorites';
 
 function* handlePostFavorite(action) {
   const { songData } = action;
@@ -25,7 +26,18 @@ function* handleFetchFavorites(action) {
   }
 }
 
+function* handleRemoveFavorite(action) {
+  const { favoriteId } = action;
+  try {
+    yield call(deleteFavorite, favoriteId);
+    yield put(doRemoveFavoriteLocal(favoriteId));
+  } catch(error) {
+    console.error(error);
+  }
+}
+
 export {
   handlePostFavorite,
-  handleFetchFavorites
+  handleFetchFavorites,
+  handleRemoveFavorite
 };

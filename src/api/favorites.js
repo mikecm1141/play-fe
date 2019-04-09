@@ -21,7 +21,15 @@ const fetchFavorites = () => {
     .then(response => response.json())
 };
 
+const deleteFavorite = favoriteId => {
+  return fetch(PLAY_URL + '/api/v1/songs/' + favoriteId, {
+    method: 'DELETE',
+    mode: 'cors'
+  });
+};
+
 export {
   postFavorite,
-  fetchFavorites
+  fetchFavorites,
+  deleteFavorite
 };

@@ -1,10 +1,27 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { doRemoveFavorite } from '../actions/favorites';
 
 import '../styles/favorite.css';
 
-export default class Favorite extends Component {
+const mapDispatchToProps = dispatch => ({
+  onRemoveFavorite: (favoriteId) => dispatch(doRemoveFavorite(favoriteId))
+});
+
+class Favorite extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.props.onRemoveFavorite(this.props.id);
+  }
+
   render() {
-    const { name, artist_name, genre, song_rating } = this.props;
+    const { id, name, artist_name, genre, song_rating } = this.props;
     return(
       <div className="favorite-container">
         <div>
@@ -16,7 +33,7 @@ export default class Favorite extends Component {
           </p>
         </div>
         <div className="favorite-actions">
-          <button>
+          <button onClick={this.handleClick}>
             <i title="Remove Favorite" className="favorite-button fas fa-heart fa-fw"></i>
           </button>
           <button>
@@ -27,3 +44,8 @@ export default class Favorite extends Component {
     );
   }
 }
+
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(Favorite);
