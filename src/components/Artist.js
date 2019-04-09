@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 
 import '../styles/artist.css';
 
-export default class Artist extends Component {
-  render() {
+const Artist = ({ handleTrackShow, artist }) => {
     return(
       <div className='listed-artist'>
         <button className="artist_name" 
-                onClick={() => { this.props.handleTrackShow(this.props.artist.artist_id) }}
+                onClick={() => { handleTrackShow(artist.artist_id) }}
         >
-          {this.props.artist.artist_name}
+          {artist.artist_name}
         </button>
       </div>
-    )
-  }
+    );
 }
+
+export default Artist;
