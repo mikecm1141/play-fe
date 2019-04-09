@@ -1,21 +1,21 @@
 import {
-  ARTISTS_ADD
+  TRACKS_ADD
 } from '../constants/actionTypes';
 
 const INITIAL_STATE = {
-  artists: [],
+  tracks: [],
   error: null
 };
 
-const applyAddArtists = (state, action) => ({
-  artists: action.artists,
+const applyAddTracks = (state, action) => ({
+  tracks: action.tracks,
   error: null
 });
 
 function artistsReducer(state = INITIAL_STATE, action) {
   switch(action.type) {
-    case ARTISTS_ADD : {
-      return applyAddArtists(state, action);
+    case TRACKS_ADD : {
+      return applyAddTracks(state, action);
     }
     default : return state;
   }

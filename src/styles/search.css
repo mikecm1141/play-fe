@@ -71,8 +71,9 @@
 /* FETCH DATA */
 
 .fetch-data {
-  display: block;
+  display: flex;
   padding: 1em 0;
   text-align: left;
   margin-bottom: 3em;
+  flex-direction: column;
 }

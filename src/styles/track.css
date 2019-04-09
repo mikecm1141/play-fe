@@ -1,0 +1,8 @@
+.listed-song {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 1em;
+  border-bottom: 1px solid #F9B5AC;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.35em;
+}

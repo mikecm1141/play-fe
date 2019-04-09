@@ -6,7 +6,11 @@ export default class Artist extends Component {
   render() {
     return(
       <div className='listed-artist'>
-        <p className='artist_name'>{this.props.artist.artist_name}</p>
+        <button className="artist_name" 
+                onClick={() => { this.props.handleTrackShow(this.props.artist.artist_id) }}
+        >
+          {this.props.artist.artist_name}
+        </button>
       </div>
     )
   }

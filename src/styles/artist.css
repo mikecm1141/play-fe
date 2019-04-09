@@ -8,4 +8,6 @@
 .artist_name {
   text-align: left;
   margin: 0;
+  background-color: inherit;
+  border: 0;
 }

@@ -1,3 +1,7 @@
 export const ARTISTS_FETCH = 'ARTISTS_FETCH';
 export const ARTISTS_FETCH_ERROR = 'ARTISTS_FETCH_ERROR';
 export const ARTISTS_ADD = 'ARTISTS_ADD';
+
+export const TRACKS_FETCH = 'TRACKS_FETCH';
+export const TRACKS_FETCH_ERROR = 'TRACKS_FETCH_ERROR';
+export const TRACKS_ADD = 'TRACKS_ADD';

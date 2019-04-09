@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { doFetchArtists } from '../actions/search';
+import { doFetchArtists } from '../actions/artists';
+import { doFetchTracks } from '../actions/tracks';
+
 import Artist from './Artist';
+import Track from './Track';
 
 import '../styles/search.css';
 
 const mapStateToProps = state => ({
-  artistsState: state.artistsState
+  artistsState: state.artistsState,
+  tracksState: state.tracksState
 });
 
 const mapDispatchToProps = dispatch => ({
-  onFetchArtists: (artistName) =>  dispatch(doFetchArtists(artistName))
+  onFetchArtists: (artistName) =>  dispatch(doFetchArtists(artistName)),
+  onFetchTracks: (artistId) => dispatch(doFetchTracks(artistId))
 });
 
 class Search extends Component {
@@ -20,11 +25,13 @@ class Search extends Component {
 
     this.state = {
       artistName: '',
-      showArtists: false
+      showArtists: false,
+      showTracks: false
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleTrackShow = this.handleTrackShow.bind(this);
   }
 
   handleChange(e) {
@@ -33,11 +40,16 @@ class Search extends Component {
 
   handleClick(e) {
     this.props.onFetchArtists(this.state.artistName);
-    this.setState({ showArtists: true });
+    this.setState({ showArtists: true, showTracks: false });
+  }
+
+  handleTrackShow(artistId) {
+    this.setState({ showArtists: false, showTracks: true });
+    this.props.onFetchTracks(artistId);
   }
 
   render() {
-    const { artistsState } = this.props;
+    const { artistsState, tracksState } = this.props;
     return(
       <div className="search-container">
         <div className='search-header'>
@@ -66,10 +78,21 @@ class Search extends Component {
         </div>
         <div className="fetch-data">
           {
-            artistsState.artists.length > 0 &&
+            artistsState.artists.length > 0 && this.state.showArtists &&
             artistsState.artists.map(artist => {
               return(
-                <Artist key={artist.artist.artist_id} artist={artist.artist}/>
+                <Artist key={artist.artist.artist_id}
+                        artist={artist.artist}
+                        handleTrackShow={this.handleTrackShow}
+                />
+              )
+            })
+          }
+          {
+            tracksState.tracks.length > 0 && this.state.showTracks &&
+            tracksState.tracks.map(track => {
+              return(
+                <Track key={track.track.track_id} track={track.track}/>
               )
             })
           }

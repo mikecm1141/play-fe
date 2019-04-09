@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects';
 
-import { doAddArtists, doFetchArtistsError } from '../actions/search';
+import { doAddArtists, doFetchArtistsError } from '../actions/artists';
 import { fetchArtists } from '../api/artists';
 
 function* handleFetchArtists(action) {
