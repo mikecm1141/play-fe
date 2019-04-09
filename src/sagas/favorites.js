@@ -1,7 +1,11 @@
 import { call, put } from 'redux-saga/effects';
 
-import { doAddFavoriteError } from '../actions/favorites';
-import { postFavorite } from '../api/favorites';
+import {
+  doAddFavoriteError,
+  doAddFavorites,
+  doFetchFavoritesError
+} from '../actions/favorites';
+import { postFavorite, fetchFavorites } from '../api/favorites';
 
 function* handlePostFavorite(action) {
   const { songData } = action;
@@ -12,6 +16,16 @@ function* handlePostFavorite(action) {
   }
 }
 
+function* handleFetchFavorites(action) {
+  try {
+    const result = yield call(fetchFavorites);
+    yield put(doAddFavorites(result));
+  } catch(error) {
+    yield put(doFetchFavoritesError(error));
+  }
+}
+
 export {
-  handlePostFavorite
+  handlePostFavorite,
+  handleFetchFavorites
 };

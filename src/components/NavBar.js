@@ -7,13 +7,13 @@ export default class NavBar extends Component {
     return(
       <nav className="bottom-nav">
         <div>
-          <a id="favorites" href="/favorites"><i className="far fa-heart fa-5x fa-fw"></i></a>
+          <a id="favorites" title="Favorite Songs" href="/favorites"><i className="far fa-heart fa-5x fa-fw"></i></a>
         </div>
         <div>
-          <a id="search" href="/"><i className="fas fa-search fa-5x fa-fw"></i></a>
+          <a id="search" title="Search Artists and Tracks" href="/"><i className="fas fa-search fa-5x fa-fw"></i></a>
         </div>
         <div>
-          <a id="playlists" href="/playlists"><i className="fas fa-music fa-5x fa-fw"></i></a>
+          <a id="playlists" title="View Your Playlists" href="/playlists"><i className="fas fa-music fa-5x fa-fw"></i></a>
         </div>
       </nav>
     )

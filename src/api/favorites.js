@@ -14,6 +14,14 @@ const postFavorite = songData => {
   });
 };
 
+const fetchFavorites = () => {
+  return fetch(PLAY_URL + '/api/v1/songs', {
+    method: 'GET'
+  })
+    .then(response => response.json())
+};
+
 export {
-  postFavorite
+  postFavorite,
+  fetchFavorites
 };

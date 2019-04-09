@@ -1,0 +1,39 @@
+.favorite-container {
+  display: flex;
+  padding: 0.75em;
+  border-bottom: 1px solid #F9B5AC;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 1em;
+  color: #9ab6c4;
+}
+
+.favorite-container:last-child {
+  border-bottom: 0;
+}
+
+.favorite-title {
+  font-weight: bold;
+  margin-bottom: 0.25em;
+}
+
+.favorite-info {
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+.favorite-info strong {
+  font-weight: bold;
+}
+
+.favorite-actions button {
+  font-size: 1.25em;
+  background-color: inherit;
+  border: 0;
+  color: inherit;
+}
+
+.favorite-actions button:focus {
+  outline: none;
+}
