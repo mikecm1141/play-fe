@@ -1,0 +1,11 @@
+.listed-artist {
+  padding: 0.75em;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 0.9em;
+  border-bottom: 1px solid #F9B5AC;
+}
+
+.artist_name {
+  text-align: left;
+  margin: 0;
+}

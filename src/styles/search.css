@@ -67,3 +67,12 @@
   font-weight: bold;
   color: #B8D4E3;
 }
+
+/* FETCH DATA */
+
+.fetch-data {
+  display: block;
+  padding: 1em 0;
+  text-align: left;
+  margin-bottom: 3em;
+}

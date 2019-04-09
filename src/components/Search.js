@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { doFetchArtists } from '../actions/search';
+import Artist from './Artist';
 
 import '../styles/search.css';
 
 const mapStateToProps = state => ({
-  artists: state.artistsState
+  artistsState: state.artistsState
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -18,7 +19,8 @@ class Search extends Component {
     super(props);
 
     this.state = {
-      artistName: ''
+      artistName: '',
+      showArtists: false
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -31,9 +33,11 @@ class Search extends Component {
 
   handleClick(e) {
     this.props.onFetchArtists(this.state.artistName);
+    this.setState({ showArtists: true });
   }
 
   render() {
+    const { artistsState } = this.props;
     return(
       <div className="search-container">
         <div className='search-header'>
@@ -60,8 +64,15 @@ class Search extends Component {
             <h2>browse available artists</h2>
           </div>
         </div>
-        <div>
-          {this.state.artistName}
+        <div className="fetch-data">
+          {
+            artistsState.artists.length > 0 &&
+            artistsState.artists.map(artist => {
+              return(
+                <Artist key={artist.artist.artist_id} artist={artist.artist}/>
+              )
+            })
+          }
         </div>
       </div>
     )
