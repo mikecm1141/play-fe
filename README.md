@@ -16,4 +16,4 @@ management, Redux-Saga for API management, and React Router.
 
 ## Contributors
 
-This project was developed by [Mike McKee](https://github.com/mikecm1141/)
+This project was developed in React by [Mike McKee](https://github.com/mikecm1141/), with design by [Daniel Mulitauopele](https://github.com/DanielMulitauopele/).
