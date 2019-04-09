@@ -1,8 +1,10 @@
 .listed-artist {
   padding: 0.75em;
-  font-family: 'Nanum Gothic', sans-serif;
-  font-size: 0.9em;
   border-bottom: 1px solid #F9B5AC;
+}
+
+.listed-artist:last-child {
+  border-bottom: 0;
 }
 
 .artist_name {
@@ -10,4 +12,8 @@
   margin: 0;
   background-color: inherit;
   border: 0;
+  color: #9ab6c4;
+  font-weight: bold;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 1em;
 }

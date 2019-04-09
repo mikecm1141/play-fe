@@ -4,5 +4,27 @@
   border-bottom: 1px solid #F9B5AC;
   display: flex;
   justify-content: space-between;
-  padding: 0.35em;
+  padding: 0.35em 0.5em 0.35em 0.5em;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  color: #9ab6c4;
+  font-weight: bold;
+}
+
+.listed-song:last-child {
+  border-bottom: 0;
+}
+
+.listed-song button {
+  border: 0;
+  background-color: inherit;
+  margin: 0;
+  padding: 0;
+  font-size: 1.1em;
+  color: #9ab6c4;
+}
+
+.listed-song button:focus {
+  outline: none;
 }
