@@ -33,7 +33,7 @@ class Playlists extends Component {
         <div className="fetch-data">
           {
             playlists.map(playlist => {
-              return <Playlist {...playlist} />
+              return <Playlist {...playlist} key={playlist.id}/>
             })
           }
         </div>

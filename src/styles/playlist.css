@@ -1,12 +1,8 @@
 .playlist-container {
-  display: flex;
-  padding: 0.75em;
-  border-bottom: 1px solid #F9B5AC;
-  justify-content: space-between;
-  align-items: center;
   font-family: 'Nanum Gothic', sans-serif;
-  font-size: 1em;
+  border-bottom: 1px solid #F9B5AC;
   color: #9ab6c4;
+  font-family: 'Nanum Gothic', sans-serif;
 }
 
 .playlist-container:last-child {
@@ -17,7 +13,54 @@
   font-weight: bold;
 }
 
-.playlist-container:hover {
+.playlist-details-container {
+  display: flex;
+  padding: 0.75em;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1em;
+}
+
+.playlist-details-container:hover {
   color: #F9B5AC;
+  cursor: pointer;
+}
+
+
+/* TRACKS */
+
+.track-details {
+  display: flex;
+  flex-direction: column;
+  padding: 0 3em 0 3em;
+}
+
+.tracks-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8em;
+}
+
+.tracks-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.track-name {
+  margin-bottom: 0.25em;
+}
+
+.track-artist {
+  font-size: 0.8em;
+}
+
+.remove-track {
+  font-size: 1.2em;
+}
+
+.remove-track:hover {
+  color: red;
   cursor: pointer;
 }
