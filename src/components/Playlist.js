@@ -56,8 +56,8 @@ class Playlist extends Component {
       <div className="playlist-container">
         <div className="playlist-details-container" onClick={this.handleShowTracks}>
           <div className="playlist-name">
-            <strong>{playlist_name}</strong>&nbsp;
-            <i className={this.state.iconClass}></i>
+            <i className={this.state.iconClass}></i>&nbsp;
+            <strong>{playlist_name}</strong>
           </div>
           <div className="playlist-info">
             {songs.length} {countLabel}
