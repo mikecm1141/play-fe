@@ -13,6 +13,7 @@ class Playlist extends Component {
 
     this.trackDetails = this.trackDetails.bind(this);
     this.handleShowTracks = this.handleShowTracks.bind(this);
+    this.filterNullSongs = this.filterNullSongs.bind(this);
   }
 
   handleShowTracks() {
@@ -24,8 +25,13 @@ class Playlist extends Component {
     }
   }
 
-  trackDetails() {
+  filterNullSongs() {
     const { songs } = this.props;
+    return songs.filter(song => song.id !== null);
+  }
+
+  trackDetails() {
+    const songs = this.filterNullSongs();
     if(songs.length > 0) {
       return(
         songs.map(song => {
@@ -45,13 +51,18 @@ class Playlist extends Component {
         })
       );
     } else {
-      return 'This playlist is empty.';
+      return(
+        <div className="tracks-container">
+          Playlist empty, add some tracks.
+        </div>
+      );
     }
   }
 
   render() {
-    const { playlist_name, songs } = this.props;
-    const countLabel = songs.length > 1 ? 'tracks' : 'track';
+    const { playlist_name } = this.props;
+    const songs = this.filterNullSongs();
+    const countLabel = songs.length === 1 ? 'track' : 'tracks';
     return(
       <div className="playlist-container">
         <div className="playlist-details-container" onClick={this.handleShowTracks}>
