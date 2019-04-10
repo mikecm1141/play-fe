@@ -7,6 +7,20 @@ const fetchPlaylists = () => {
     .then(response => response.json())
 };
 
+const postPlaylist = playlistName => {
+  const payload = {
+    playlist_name: playlistName
+  };
+
+  return fetch(PLAY_URL + '/api/v1/playlists', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+    .then(response => response.json())
+};
+
 export {
-  fetchPlaylists
+  fetchPlaylists,
+  postPlaylist
 };

@@ -1,7 +1,7 @@
 import { call, put } from 'redux-saga/effects';
 
-import { doAddPlaylists } from '../actions/playlists';
-import { fetchPlaylists } from '../api/playlists';
+import { doAddPlaylists, doFetchPlaylists } from '../actions/playlists';
+import { fetchPlaylists, postPlaylist } from '../api/playlists';
 
 function* handleFetchPlaylists(action) {
   try {
@@ -12,6 +12,16 @@ function* handleFetchPlaylists(action) {
   }
 }
 
+function* handlePostPlaylist(action) {
+  try {
+    yield call(postPlaylist, action.playlistName);
+    yield put(doFetchPlaylists());
+  } catch(error) {
+    console.error(error);
+  }
+}
+
 export {
-  handleFetchPlaylists
+  handleFetchPlaylists,
+  handlePostPlaylist
 };
