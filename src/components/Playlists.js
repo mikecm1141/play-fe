@@ -1,9 +1,27 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import Playlist from './Playlist';
+
+import { doFetchPlaylists } from '../actions/playlists';
 
 import '../styles/playlists.css';
 
+const mapStateToProps = state => ({
+  playlists: state.playlistsState
+});
+
+const mapDispatchToProps = dispatch => ({
+  onFetchPlaylists: () => dispatch(doFetchPlaylists())
+});
+
 class Playlists extends Component {
+  componentDidMount() {
+    this.props.onFetchPlaylists();
+  }
+
   render() {
+    const { playlists } = this.props.playlists;
     return(
       <div className="playlists-container">
         <div className="playlists-header">
@@ -13,11 +31,18 @@ class Playlists extends Component {
           </div>
         </div>
         <div className="fetch-data">
-          Playlists here.
+          {
+            playlists.map(playlist => {
+              return <Playlist {...playlist} />
+            })
+          }
         </div>
       </div>
     )
   }
 }
 
-export default Playlists;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Playlists);

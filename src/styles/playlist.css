@@ -1,0 +1,23 @@
+.playlist-container {
+  display: flex;
+  padding: 0.75em;
+  border-bottom: 1px solid #F9B5AC;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 1em;
+  color: #9ab6c4;
+}
+
+.playlist-container:last-child {
+  border-bottom: 0;
+}
+
+.playlist-container strong {
+  font-weight: bold;
+}
+
+.playlist-container:hover {
+  color: #F9B5AC;
+  cursor: pointer;
+}
