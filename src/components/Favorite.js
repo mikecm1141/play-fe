@@ -14,10 +14,15 @@ class Favorite extends Component {
     super(props);
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleClickModal = this.handleClickModal.bind(this);
   }
 
   handleClick() {
     this.props.onRemoveFavorite(this.props.id);
+  }
+
+  handleClickModal() {
+    // const { id } = this.props;
   }
 
   render() {
@@ -36,7 +41,7 @@ class Favorite extends Component {
           <button onClick={this.handleClick}>
             <i title="Remove Favorite" className="favorite-button fas fa-heart fa-fw"></i>
           </button>
-          <button>
+          <button onClick={this.handleClickModal}>
             <i title="Add to Playlist" className="playlist-button fas fa-music fa-fw"></i>
           </button>
         </div>

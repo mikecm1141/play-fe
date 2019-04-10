@@ -40,6 +40,7 @@
 
 .favorite-actions button:hover {
   color: #F9B5AC;
+  cursor: pointer;
 }
 
 .favorite-actions button:focus {
