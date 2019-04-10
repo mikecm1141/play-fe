@@ -1,0 +1,102 @@
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-box {
+  background-color: #FFFFF3;
+  margin: 15% auto;
+  padding: 1em;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-header-text {
+  text-align: center;
+}
+
+.modal-header-text h1 {
+  color: #F9B5AC;
+  font-family: 'Cabin', sans-serif;
+  font-size: 2em;
+  margin-bottom: 0.15em;
+}
+
+.modal-header-text h2 {
+  font-family: 'Nanum Gothic', sans-serif;
+  text-align: center;
+  font-size: 1em;
+  font-weight: bold;
+  color: #B8D4E3;
+}
+
+.modal-content {
+  margin: 1.5em 0 1.5em 0;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-content select {
+  color: #B8D4E3;
+  border: 2px solid #B8D4E3;
+  border-radius: 50px 0 0 50px;
+  width: 80%;
+  font-size: 1.10em;
+  font-family: 'Nanum Gothic', sans-serif;
+  padding: 5px 0 5px 10px;
+  background-color: #FFFFF3;
+}
+
+.modal-content select:focus {
+  outline: none;
+}
+
+.modal-content button {
+  color: #DAFFED;
+  border: 2px solid #B8D4E3;
+  border-radius: 0 50px 50px 0;
+  background-color: #B8D4E3;
+  font-size: 0.30em;
+}
+
+.modal-content button:hover {
+  color: #F9B5AC;
+}
+
+.modal-content button:focus {
+  outline: none;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-footer button {
+  font-size: 1.5em;
+  color: #B8D4E3;
+  border: 0;
+  background-color: inherit;
+  font-weight: bold;
+}
+
+.modal-footer button:focus {
+  outline: none;
+}
+
+.modal-footer button:hover {
+  color: #F9B5AC;
+  cursor: pointer;
+}
