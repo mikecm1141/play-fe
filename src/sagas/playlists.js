@@ -1,7 +1,14 @@
 import { call, put } from 'redux-saga/effects';
 
-import { doAddPlaylists, doFetchPlaylists } from '../actions/playlists';
-import { fetchPlaylists, postPlaylist } from '../api/playlists';
+import {
+  doAddPlaylists,
+  doFetchPlaylists,
+} from '../actions/playlists';
+import {
+  fetchPlaylists,
+  postPlaylist,
+  postPlaylistFavorite
+} from '../api/playlists';
 
 function* handleFetchPlaylists(action) {
   try {
@@ -21,7 +28,16 @@ function* handlePostPlaylist(action) {
   }
 }
 
+function* handlePostPlaylistFavorite(action) {
+  try {
+    yield call(postPlaylistFavorite, action.playlistId, action.favoriteId);
+  } catch(error) {
+    console.error(error);
+  }
+}
+
 export {
   handleFetchPlaylists,
-  handlePostPlaylist
+  handlePostPlaylist,
+  handlePostPlaylistFavorite
 };

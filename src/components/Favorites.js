@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { doFetchFavorites } from '../actions/favorites';
-import { doFetchPlaylists } from '../actions/playlists';
+import { doFetchPlaylists, doPostPlaylistFavorite } from '../actions/playlists';
 import '../styles/favorites.css';
 
 import Favorite from './Favorite';
@@ -16,7 +16,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onFetchFavorites: () => dispatch(doFetchFavorites()),
-  onFetchPlaylists: () => dispatch(doFetchPlaylists())
+  onFetchPlaylists: () => dispatch(doFetchPlaylists()),
+  onPostPlaylistFavorite: (playlistId, favoriteId) => dispatch(doPostPlaylistFavorite(playlistId, favoriteId))
 })
 
 class Favorites extends Component {
@@ -30,6 +31,7 @@ class Favorites extends Component {
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.handleAddToPlaylist = this.handleAddToPlaylist.bind(this);
   }
 
   componentDidMount() {
@@ -49,6 +51,10 @@ class Favorites extends Component {
     this.setState({ showModal: false });
   }
 
+  handleAddToPlaylist(playlistId, favoriteId) {
+    this.props.onPostPlaylistFavorite(playlistId, favoriteId);
+  }
+
   render() {
     const { favorites } = this.props.favorites;
     const { showModal, selectedFavorite } = this.state;
@@ -60,6 +66,7 @@ class Favorites extends Component {
           <PlaylistModal closeModal={this.handleCloseModal}
                          playlists={playlists}
                          favorite={selectedFavorite}
+                         addToPlaylist={this.handleAddToPlaylist}
           />
         }
         <div className="favorites-header">

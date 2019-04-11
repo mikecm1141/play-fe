@@ -42,10 +42,23 @@
   color: #B8D4E3;
 }
 
+.modal-header-text em {
+  font-style: italic;
+}
+
 .modal-content {
-  margin: 1.5em 0 1.5em 0;
+  margin: 1.5em 0 2em 0;
   display: flex;
   justify-content: center;
+  font-family: 'Nanum Gothic', sans-serif;
+  flex-direction: column;
+}
+
+.playlist-error {
+  color: tomato;
+  text-align: center;
+  margin-top: 0.50em;
+  margin-bottom: -1.5em;
 }
 
 .modal-content select {
@@ -77,6 +90,11 @@
 
 .modal-content button:focus {
   outline: none;
+}
+
+.playlist-field {
+  display: flex;
+  width: 100%;
 }
 
 .modal-footer {

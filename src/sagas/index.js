@@ -7,7 +7,8 @@ import {
   FAVORITES_FETCH,
   FAVORITE_REMOVE,
   PLAYLISTS_FETCH,
-  PLAYLIST_POST
+  PLAYLIST_POST,
+  PLAYLIST_POST_FAVORITE
 } from '../constants/actionTypes';
 
 import { handleFetchArtists } from './artists';
@@ -17,7 +18,11 @@ import {
   handleFetchFavorites,
   handleRemoveFavorite
 } from  './favorites';
-import { handleFetchPlaylists, handlePostPlaylist } from './playlists';
+import {
+  handleFetchPlaylists,
+  handlePostPlaylist,
+  handlePostPlaylistFavorite
+} from './playlists';
 
 
 function *watchAll() {
@@ -28,7 +33,8 @@ function *watchAll() {
     takeEvery(FAVORITES_FETCH, handleFetchFavorites),
     takeEvery(FAVORITE_REMOVE, handleRemoveFavorite),
     takeEvery(PLAYLISTS_FETCH, handleFetchPlaylists),
-    takeEvery(PLAYLIST_POST, handlePostPlaylist)
+    takeEvery(PLAYLIST_POST, handlePostPlaylist),
+    takeEvery(PLAYLIST_POST_FAVORITE, handlePostPlaylistFavorite)
   ])
 }
 

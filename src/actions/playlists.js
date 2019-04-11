@@ -2,7 +2,8 @@ import {
   PLAYLISTS_FETCH,
   PLAYLISTS_ADD,
   PLAYLIST_POST,
-  PLAYLIST_ADD
+  PLAYLIST_ADD,
+  PLAYLIST_POST_FAVORITE
 } from '../constants/actionTypes';
 
 const doFetchPlaylists = () => ({
@@ -24,9 +25,16 @@ const doAddPlaylist = playlist => ({
   playlist
 });
 
+const doPostPlaylistFavorite = (playlistId, favoriteId) => ({
+  type: PLAYLIST_POST_FAVORITE,
+  playlistId,
+  favoriteId
+});
+
 export {
   doFetchPlaylists,
   doAddPlaylists,
   doPostPlaylist,
-  doAddPlaylist
+  doAddPlaylist,
+  doPostPlaylistFavorite
 };

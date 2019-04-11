@@ -20,7 +20,14 @@ const postPlaylist = playlistName => {
     .then(response => response.json())
 };
 
+const postPlaylistFavorite = (playlistId, favoriteId) => {
+  fetch(`${PLAY_URL}/api/v1/playlists/${playlistId}/songs/${favoriteId}`, {
+    method: 'POST'
+  })
+};
+
 export {
   fetchPlaylists,
-  postPlaylist
+  postPlaylist,
+  postPlaylistFavorite
 };

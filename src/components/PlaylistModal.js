@@ -7,44 +7,66 @@ export default class PlaylistModal extends Component {
     super(props);
 
     this.state = {
-      playlist: null
+      playlist: '-1',
+      error: null
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(e) {
-    this.setState({ playlist: e.target.value });
+    this.setState({ playlist: e.target.value, error: null });
+  }
+
+  handleClick() {
+    const { playlist } = this.state;
+    const { addToPlaylist, favorite, closeModal } = this.props;
+
+    if(playlist === '-1') {
+      this.setState({ error: 'Select a valid playlist.' });
+      return;
+    }
+
+    addToPlaylist(parseInt(playlist), favorite.id);
+    closeModal();
   }
 
   render() {
     const { closeModal, playlists, favorite } = this.props;
+    const { error } = this.state;
     return(
       <div className="modal">
         <div className="modal-box">
           <div className="modal-header">
             <div className="modal-header-text">
               <h1>add to playlist.</h1>
-              <h2>add {favorite.name} to selected playlist below</h2>
+              <h2>add <em>{favorite.name}</em> to selected playlist below</h2>
             </div>
           </div>
           <div className="modal-content">
-            <select onChange={this.handleChange}>
+            <div className="playlist-field">
+              <select onChange={this.handleChange}>
+                <option value="-1">Select Playlist...</option>
+                {
+                  playlists.map(playlist => {
+                    return(
+                      <option
+                        key={playlist.id}
+                        value={playlist.id}>
+                        {playlist.playlist_name}
+                      </option>
+                    )
+                  })
+                }
+              </select>
+              <button onClick={this.handleClick}>
+                <i className="fas fa-music fa-5x fa-fw"></i>
+              </button>
+            </div>
               {
-                playlists.map(playlist => {
-                  return(
-                    <option
-                      key={playlist.id}
-                      value={playlist.id}>
-                      {playlist.playlist_name}
-                    </option>
-                  )
-                })
+                error && <div className="playlist-error">{error}</div>
               }
-            </select>
-            <button>
-              <i className="fas fa-music fa-5x fa-fw"></i>
-            </button>
           </div>
           <div className="modal-footer">
             <button onClick={closeModal}>Close</button>
