@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { doDeletePlaylistFavorite } from '../actions/playlists';
 
 import '../styles/playlist.css';
+
+const mapDispatchToProps = dispatch => ({
+  onDeletePlaylistTrack: (playlistId, favoriteId) => dispatch(doDeletePlaylistFavorite(playlistId, favoriteId)),
+});
 
 class Playlist extends Component {
   constructor(props) {
@@ -8,12 +15,14 @@ class Playlist extends Component {
 
     this.state = {
       showTracks: false,
-      iconClass: 'fas fa-chevron-circle-down'
+      iconClass: 'fas fa-chevron-circle-down',
+      refreshList: false
     };
 
     this.trackDetails = this.trackDetails.bind(this);
     this.handleShowTracks = this.handleShowTracks.bind(this);
     this.filterNullSongs = this.filterNullSongs.bind(this);
+    this.handleRemoveTrack = this.handleRemoveTrack.bind(this);
   }
 
   handleShowTracks() {
@@ -30,6 +39,12 @@ class Playlist extends Component {
     return songs.filter(song => song.id !== null);
   }
 
+  handleRemoveTrack(favoriteId) {
+    this.props.onDeletePlaylistTrack(this.props.id, favoriteId);
+    this.props.refreshPlaylists();
+    this.setState({ refreshList: !this.state.refreshList });
+  }
+
   trackDetails() {
     const songs = this.filterNullSongs();
     if(songs.length > 0) {
@@ -43,8 +58,12 @@ class Playlist extends Component {
                 </div>
                 <div className="track-artist">{song.artist_name}</div>
               </div>
-              <div className="tracks-action">
-                <i className="fas fa-minus-circle remove-track"></i>
+              <div className="track-action">
+                <button onClick={() => this.handleRemoveTrack(song.id)}>
+                  <i
+                    className="fas fa-minus-circle remove-track"
+                  ></i>
+                </button>
               </div>
             </div>
           );
@@ -53,7 +72,7 @@ class Playlist extends Component {
     } else {
       return(
         <div className="tracks-container">
-          Playlist empty, add some tracks.
+          <p>Playlist empty, add some tracks.</p>
         </div>
       );
     }
@@ -71,7 +90,7 @@ class Playlist extends Component {
             <strong>{playlist_name}</strong>
           </div>
           <div className="playlist-info">
-            {songs.length} {countLabel}
+            <p>{songs.length} {countLabel}</p>
           </div>
         </div>
         <div className="track-details">
@@ -84,4 +103,7 @@ class Playlist extends Component {
   }
 }
 
-export default Playlist;
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(Playlist);

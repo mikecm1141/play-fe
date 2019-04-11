@@ -68,7 +68,10 @@ class Playlists extends Component {
         <div className="fetch-data">
           {
             playlists.map(playlist => {
-              return <Playlist {...playlist} key={playlist.id}/>
+              return <Playlist {...playlist} 
+                               key={playlist.id}
+                               refreshPlaylists={this.props.onFetchPlaylists}
+                      />
             })
           }
         </div>

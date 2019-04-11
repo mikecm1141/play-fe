@@ -26,8 +26,15 @@ const postPlaylistFavorite = (playlistId, favoriteId) => {
   })
 };
 
+const deletePlaylistFavorite = (playlistId, favoriteId) => {
+  fetch(`${PLAY_URL}/api/v1/playlists/${playlistId}/songs/${favoriteId}`, {
+    method: 'DELETE'
+  })
+};
+
 export {
   fetchPlaylists,
   postPlaylist,
-  postPlaylistFavorite
+  postPlaylistFavorite,
+  deletePlaylistFavorite
 };

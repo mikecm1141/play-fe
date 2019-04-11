@@ -26,7 +26,6 @@
   cursor: pointer;
 }
 
-
 /* TRACKS */
 
 .track-details {
@@ -56,8 +55,14 @@
   font-size: 0.8em;
 }
 
+.track-action button {
+  border: 0;
+  background-color: inherit;
+}
+
 .remove-track {
   font-size: 1.2em;
+  color: #B8D4E3;
 }
 
 .remove-track:hover {

@@ -3,7 +3,8 @@ import {
   PLAYLISTS_ADD,
   PLAYLIST_POST,
   PLAYLIST_ADD,
-  PLAYLIST_POST_FAVORITE
+  PLAYLIST_POST_FAVORITE,
+  PLAYLIST_DELETE_FAVORITE
 } from '../constants/actionTypes';
 
 const doFetchPlaylists = () => ({
@@ -31,10 +32,17 @@ const doPostPlaylistFavorite = (playlistId, favoriteId) => ({
   favoriteId
 });
 
+const doDeletePlaylistFavorite = (playlistId, favoriteId) => ({
+  type: PLAYLIST_DELETE_FAVORITE,
+  playlistId,
+  favoriteId
+});
+
 export {
   doFetchPlaylists,
   doAddPlaylists,
   doPostPlaylist,
   doAddPlaylist,
-  doPostPlaylistFavorite
+  doPostPlaylistFavorite,
+  doDeletePlaylistFavorite
 };

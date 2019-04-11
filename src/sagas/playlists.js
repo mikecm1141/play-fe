@@ -7,7 +7,8 @@ import {
 import {
   fetchPlaylists,
   postPlaylist,
-  postPlaylistFavorite
+  postPlaylistFavorite,
+  deletePlaylistFavorite
 } from '../api/playlists';
 
 function* handleFetchPlaylists(action) {
@@ -36,8 +37,17 @@ function* handlePostPlaylistFavorite(action) {
   }
 }
 
+function* handleDeletePlaylistFavorite(action) {
+  try {
+    yield call(deletePlaylistFavorite, action.playlistId, action.favoriteId);
+  } catch(error) {
+    console.error(error);
+  }
+}
+
 export {
   handleFetchPlaylists,
   handlePostPlaylist,
-  handlePostPlaylistFavorite
+  handlePostPlaylistFavorite,
+  handleDeletePlaylistFavorite
 };
