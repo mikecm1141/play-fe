@@ -1,13 +1,13 @@
 {
   "main.css": "/play-fe/static/css/main.539aa02b.chunk.css",
-  "main.js": "/play-fe/static/js/main.5e5c7591.chunk.js",
-  "main.js.map": "/play-fe/static/js/main.5e5c7591.chunk.js.map",
+  "main.js": "/play-fe/static/js/main.536bf6d5.chunk.js",
+  "main.js.map": "/play-fe/static/js/main.536bf6d5.chunk.js.map",
   "runtime~main.js": "/play-fe/static/js/runtime~main.0a84adc5.js",
   "runtime~main.js.map": "/play-fe/static/js/runtime~main.0a84adc5.js.map",
   "static/js/2.5d62e9b4.chunk.js": "/play-fe/static/js/2.5d62e9b4.chunk.js",
   "static/js/2.5d62e9b4.chunk.js.map": "/play-fe/static/js/2.5d62e9b4.chunk.js.map",
   "index.html": "/play-fe/index.html",
-  "precache-manifest.63c34e2931a9cd9732cd504bf7355ec6.js": "/play-fe/precache-manifest.63c34e2931a9cd9732cd504bf7355ec6.js",
+  "precache-manifest.d42be1cb45d1947c5dbe42e76c0e8e6a.js": "/play-fe/precache-manifest.d42be1cb45d1947c5dbe42e76c0e8e6a.js",
   "service-worker.js": "/play-fe/service-worker.js",
   "static/css/main.539aa02b.chunk.css.map": "/play-fe/static/css/main.539aa02b.chunk.css.map"
 }

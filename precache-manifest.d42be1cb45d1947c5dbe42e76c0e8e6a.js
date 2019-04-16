@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/play-fe/static/js/runtime~main.0a84adc5.js"
   },
   {
-    "revision": "e91f24d235d5214f2041",
-    "url": "/play-fe/static/js/main.5e5c7591.chunk.js"
+    "revision": "a5ab0dd134fff1ba9422",
+    "url": "/play-fe/static/js/main.536bf6d5.chunk.js"
   },
   {
     "revision": "1fd26eb2673e2eb7c1a8",
     "url": "/play-fe/static/js/2.5d62e9b4.chunk.js"
   },
   {
-    "revision": "e91f24d235d5214f2041",
+    "revision": "a5ab0dd134fff1ba9422",
     "url": "/play-fe/static/css/main.539aa02b.chunk.css"
   },
   {
-    "revision": "af0ffbdfdfaa4e584a4a311e9c4cd9e4",
+    "revision": "a82a21b192637aeb842b931f8142d525",
     "url": "/play-fe/index.html"
   }
 ];
