@@ -11,7 +11,7 @@ const rootElement = document.getElementById('root');
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename="/playfe">
       <App />
     </BrowserRouter>
   </Provider>, 
